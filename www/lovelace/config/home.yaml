@@ -1,0 +1,300 @@
+layout: horizontal
+column_num: 1
+max_columns: 1
+max_width: [100%]
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: picture-elements
+        image: /local/lovelace/images/home/top_section.svg
+        elements:
+          - type: state-label
+            entity: sensor.today_text
+            style:
+              top: 50%
+              left: 10%
+              color: "#FFFFFF"
+              font-family: Quicksand
+              font-size: 20px
+          
+IN SECTION ------------------------------------------------------------------------------------                  
+  - type: horizontal-stack
+    cards:
+      - type: picture-elements
+        image: /local/lovelace/images/home/main_section.svg
+        elements:
+  # --- Current Temeperature ---      
+          - type: state-label
+            entity: sensor.current_temperature
+            style:
+              top: 15%
+              left: 33%
+              color: "#FFFFFF"
+              font-family: Quicksand
+              font-size: 96px
+  # --- Cloud Cover ---      
+          - type: state-label
+            entity: sensor.cloud_cover
+            style:
+              top: 32%
+              left: 33%
+              color: "#FFFFFF"
+              font-family: Quicksand
+              font-size: 16px
+  # --- Nearest Storm ---      
+          - type: state-label
+            entity: sensor.nearest_storm
+            style:
+              top: 38%
+              left: 33%
+              color: "#FFFFFF"
+              font-family: Quicksand
+              font-size: 16px
+  # --- Current Temeperature Icon ---
+          - type: conditional
+            conditions:
+              - entity: sensor.dark_sky_icon
+                state: 'clear-day'
+            elements:
+              - type: image
+                image: /local/floorplan/images/weather/clear-day.svg
+                style:
+                  top: 23%
+                  left: 12%
+                  width: 15%
+                  pointer-events: none
+          - type: conditional
+            conditions:
+              - entity: sensor.dark_sky_icon
+                state: 'clear-night'
+            elements:
+              - type: image
+                image: /local/floorplan/images/weather/clear-night.svg
+                style:
+                  top: 20%
+                  left: 12%
+                  width: 12%
+                  pointer-events: none
+          - type: conditional
+            conditions:
+              - entity: sensor.dark_sky_icon
+                state: 'rain'
+            elements:
+              - type: image
+                image: /local/floorplan/images/weather/rain.svg
+                style:
+                  top: 20%
+                  left: 12%
+                  width: 12%
+                  pointer-events: none
+          - type: conditional
+            conditions:
+              - entity: sensor.dark_sky_icon
+                state: 'snow'
+            elements:
+              - type: image
+                image: /local/floorplan/images/weather/snow.svg
+                style:
+                  top: 20%
+                  left: 12%
+                  width: 12%
+                  pointer-events: none
+          - type: conditional
+            conditions:
+              - entity: sensor.dark_sky_icon
+                state: 'sleet'
+            elements:
+              - type: image
+                image: /local/floorplan/images/weather/sleet.svg
+                style:
+                  top: 20%
+                  left: 12%
+                  width: 12%
+                  pointer-events: none
+          - type: conditional
+            conditions:
+              - entity: sensor.dark_sky_icon
+                state: 'wind'
+            elements:
+              - type: image
+                image: /local/floorplan/images/weather/wind.svg
+                style:
+                  top: 20%
+                  left: 12%
+                  width: 12%
+                  pointer-events: none
+          - type: conditional
+            conditions:
+              - entity: sensor.dark_sky_icon
+                state: 'fog'
+            elements:
+              - type: image
+                image: /local/floorplan/images/weather/fog.svg
+                style:
+                  top: 20%
+                  left: 12%
+                  width: 12%
+                  pointer-events: none
+          - type: conditional
+            conditions:
+              - entity: sensor.dark_sky_icon
+                state: 'cloudy'
+            elements:
+              - type: image
+                image: /local/floorplan/images/weather/cloudy.svg
+                style:
+                  top: 20%
+                  left: 12%
+                  width: 12%
+                  pointer-events: none        
+          - type: conditional
+            conditions:
+              - entity: sensor.dark_sky_icon
+                state: 'partly-cloudy-day'
+            elements:
+              - type: image
+                image: /local/floorplan/images/weather/partly-cloudy-day.svg
+                style:
+                  top: 20%
+                  left: 12%
+                  width: 12%
+                  pointer-events: none
+          - type: conditional
+            conditions:
+              - entity: sensor.dark_sky_icon
+                state: 'partly-cloudy-night'
+            elements:
+              - type: image
+                image: /local/floorplan/images/weather/partly-cloudy-night.svg
+                style:
+                  top: 20%
+                  left: 12%
+                  width: 12%
+                  pointer-events: none
+          - type: conditional
+            conditions:
+              - entity: sensor.dark_sky_icon
+                state: 'hail'
+            elements:
+              - type: image
+                image: /local/floorplan/images/weather/hail.svg
+                style:
+                  top: 20%
+                  left: 12%
+                  width: 12%
+                  pointer-events: none
+          - type: conditional
+            conditions:
+              - entity: sensor.dark_sky_icon
+                state: 'thunderstorm'
+            elements:
+              - type: image
+                image: /local/floorplan/images/weather/thunderstorm.svg
+                style:
+                  top: 20%
+                  left: 12%
+                  width: 12%
+                  pointer-events: none
+          - type: conditional
+            conditions:
+              - entity: sensor.dark_sky_icon
+                state: 'tornado'
+            elements:
+              - type: image
+                image: /local/floorplan/images/weather/tornado.svg
+                style:
+                  top: 20%
+                  left: 12%
+                  width: 12%
+                  pointer-events: none
+  # --- Light Toggles ---                  
+          - type: image
+            tap_action: 
+              action: toggle
+            entity: light.bedroom_lights
+            state_image:
+              "off": /local/lovelace/images/assets/lights/dark_off.svg
+              "on": /local/lovelace/images/assets/lights/dark_on.svg
+            style:
+              top: 31%
+              left: 61%
+              width: 4%
+                  
+ESENCE SECTION ------------------------------------------------------------------------------------                          
+  - type: horizontal-stack
+    cards:
+      - type: picture-elements
+        image: /local/lovelace/images/home/bottom_section.svg
+        elements:
+          - type: image
+            entity: device_tracker.life360_john_sollecito
+            image: /local/lovelace/images/assets/person/john_away.svg
+            state_image:
+              "home": /local/lovelace/images/assets/person/john_home.svg
+              "not_home": /local/lovelace/images/assets/person/john_away.svg
+            style:
+              top: 37%
+              left: 10%
+              width: 8%
+          - type: image
+            entity: device_tracker.life360_jo_anne
+            image: /local/lovelace/images/assets/person/joanne_away.svg
+            state_image:
+              "home": /local/lovelace/images/assets/person/joanne_home.svg
+              "not_home": /local/lovelace/images/assets/person/joanne_away.svg
+            style:
+              top: 37%
+              left: 33%
+              width: 8%
+          - type: image
+            entity: device_tracker.iphone
+            image: /local/lovelace/images/assets/person/girls_away.svg
+            state_image:
+              "home": /local/lovelace/images/assets/person/girls_home.svg
+              "not_home": /local/lovelace/images/assets/person/girls_away.svg
+            style:
+              top: 37%
+              left: 56%
+              width: 8%
+          - type: image
+            entity: device_tracker.jennaiphonex
+            image: /local/lovelace/images/assets/person/girls_away.svg
+            state_image:
+              "home": /local/lovelace/images/assets/person/girls_home.svg
+              "not_home": /local/lovelace/images/assets/person/girls_away.svg
+            style:
+              top: 37%
+              left: 79%
+              width: 8%
+          - type: state-label
+            entity: sensor.john_location
+            style:
+              top: 82%
+              left: 10%
+              color: "#A1A1A1"
+              font-family: Quicksand
+              font-size: 100%
+          - type: state-label
+            entity: sensor.joanne_location
+            style:
+              top: 82%
+              left: 33%
+              color: "#A1A1A1"
+              font-family: Quicksand
+              font-size: 100%
+          - type: state-label
+            entity: sensor.jordyn_location
+            style:
+              top: 82%
+              left: 53%
+              color: "#A1A1A1"
+              font-family: Quicksand
+              font-size: 100%
+          - type: state-label
+            entity: sensor.jenna_location
+            style:
+              top: 82%
+              left: 73%
+              color: "#A1A1A1"
+              font-family: Quicksand
+              font-size: 100%

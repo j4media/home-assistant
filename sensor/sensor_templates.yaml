@@ -1,0 +1,131 @@
+- platform: template
+  sensors:
+# WEATHER TEMPLATES
+    current_temperature:
+      friendly_name: Current Temperature
+      value_template: >-
+        {{ states('sensor.dark_sky_temperature') | round | int }}°
+    current_feels:
+      friendly_name: Current Feels Like
+      value_template: >-
+        feels like {{ states('sensor.dark_sky_apparent_temperature') | round | int }}°
+    cloud_cover:
+      friendly_name: Cloud Cover
+      value_template: >-
+        current cloud cover is {{ states('sensor.dark_sky_cloud_coverage') | round | int }}%
+    nearest_storm:
+      friendly_name: Nearest Storm
+      value_template: >-
+        nearest storm is {{ states('sensor.dark_sky_nearest_storm_distance') }} mi. away
+    forecast_summary:
+      friendly_name: Forecast
+      value_template: >-
+        {{ states('sensor.dark_sky_minutely_summary') }}
+    current_humidity:
+      friendly_name: Current Humidity
+      value_template: >-
+        {{ states('sensor.dark_sky_humidity') | round | int }}%
+    daily_high:
+      friendly_name: Today's High
+      value_template: >-
+        {{ states('sensor.dark_sky_daily_high_temperature_0d') | round | int }}°
+    daily_low:
+      friendly_name: Today's Low
+      value_template: >-
+        {{ states('sensor.dark_sky_daily_low_temperature_0d') | round | int }}°
+    precipitation:
+      friendly_name: Precipitation Detected
+      value_template: >-
+        {{ states('sensor.dark_sky_precip') | regex_replace(find='unknown', replace='none', ignorecase=true) }} detected
+    precipitation_amount:
+      friendly_name: Precipitation Amount
+      value_template: >-
+        {{ states('sensor.dark_sky_precip_intensity') | round(2, 'ceil') }} in. per hour
+    precipitation_prob:
+      friendly_name: Precipitation Probability
+      value_template: >-
+        probability: {{ states('sensor.dark_sky_precip_probability') | round | int }}%
+    sunrise_today:
+      friendly_name: "Sunrise Today"
+      value_template: "{% set state = states('sensor.dark_sky_sunrise_0d') %}
+                       {{ strptime(state, '%Y-%m-%d %H:%M:%S')
+                       .replace(tzinfo=utcnow().tzinfo).astimezone(now().tzinfo) .strftime('%I:%M %p') }}"
+    sunrise_tomorrow:
+      friendly_name: "Sunrise Tomorrow"
+      value_template: "{% set state = states('sensor.dark_sky_sunrise_1d') %}
+                       {{ strptime(state, '%Y-%m-%d %H:%M:%S')
+                       .replace(tzinfo=utcnow().tzinfo).astimezone(now().tzinfo) .strftime('%I:%M %p') }}"
+    sunset_today:
+      friendly_name: "Sunset Today"
+      value_template: "{% set state = states('sensor.dark_sky_sunset_0d') %}
+                       {{ strptime(state, '%Y-%m-%d %H:%M:%S')
+                       .replace(tzinfo=utcnow().tzinfo).astimezone(now().tzinfo) .strftime('%I:%M %p') }}"
+    sunset_tomorrow:
+      friendly_name: "Sunset Tomorrow"
+      value_template: "{% set state = states('sensor.dark_sky_sunset_1d') %}
+                       {{ strptime(state, '%Y-%m-%d %H:%M:%S')
+                       .replace(tzinfo=utcnow().tzinfo).astimezone(now().tzinfo) .strftime('%I:%M %p') }}"
+
+# TIME AND DATE TEMPLATES
+    today_text:
+      entity_id: sensor.date
+      friendly_name: "Today is"
+      value_template: "{{ now().strftime('%A / %B %d') }}"
+    today_clock:
+      entity_id: sensor.time
+      friendly_name: "Today is"
+      value_template: "{{ now().strftime('%A / %B %d / %I:%M %p') }}"
+    clock:
+      entity_id: sensor.time
+      friendly_name: "Time is"
+      value_template: "{{ now().strftime('%I:%M %p') }}"
+
+#THERMOSTAT TEMPLATES
+    main_status:
+      friendly_name: Main Floor Status
+      value_template: >-
+        {{ state_attr('climate.main_floor', 'current_temperature') | round | int }}° / {{ state_attr('climate.main_floor', 'current_humidity') | round | int }}% humidity
+    upstairs_status:
+      friendly_name: Upstairs Status
+      value_template: >-
+        {{ state_attr('climate.upstairs', 'current_temperature') | round | int }}° / {{ state_attr('climate.upstairs', 'current_humidity') | round | int }}% humidity
+    familyroom_temperature:
+      friendly_name: Family Room Temperature
+      value_template: >-
+        {{ states('sensor.family_room_temperature') | round | int }}°
+    diningroom_temperature:
+      friendly_name: Dining Room Temperature
+      value_template: >-
+        {{ states('sensor.dining_room_temperature') | round | int }}°   
+        
+# PRESENCE TRACKING TEMPLATES
+    john_location:
+      value_template: "john is {{ states('device_tracker.life360_john_sollecito') | regex_replace(find='not_home', replace='away', ignorecase=true) }}"
+    joanne_location:
+      value_template: "jo anne is {{ states('device_tracker.life360_jo_anne') | regex_replace(find='not_home', replace='away', ignorecase=true) }}"
+    jordyn_location:
+      value_template: "jordyn is {{ states('device_tracker.life360_jordyn') | regex_replace(find='not_home', replace='away', ignorecase=true) }}"
+    jenna_location:
+      value_template: "jenna is {{ states('device_tracker.life360_jenna') | regex_replace(find='not_home', replace='away', ignorecase=true) }}"
+
+# TEXT TEMPLATES    
+    text_mainfloor:
+      value_template: "main floor"
+    text_secondfloor:
+      value_template: "second floor"
+    text_master:
+      value_template: "master bedroom"
+    text_jordynroom:
+      value_template: "jordyn's room"
+    text_jennaroom:
+      value_template: "jenna's room"
+    text_kitchen:
+      value_template: "kitchen"
+    text_diningroom:
+      value_template: "dining room"
+    text_familyroom:
+      value_template: "family room"
+    text_table:
+      value_template: "table"
+    text_island:
+      value_template: "island"

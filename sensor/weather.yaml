@@ -1,0 +1,29 @@
+- platform: darksky
+  api_key: !secret darksky_api
+  forecast:
+    - 0
+    - 1
+  monitored_conditions:
+    - summary
+    - icon
+    - nearest_storm_distance
+    - precip_type
+    - precip_intensity
+    - precip_probability
+    - precip_intensity_max
+    - precip_accumulation
+    - temperature
+    - apparent_temperature
+    - wind_speed
+    - cloud_cover
+    - humidity
+    - temperature_max
+    - temperature_min
+    - apparent_temperature_max
+    - apparent_temperature_min
+    - uv_index
+    - minutely_summary
+    - hourly_summary
+    - daily_summary
+    - sunrise_time
+    - sunset_time

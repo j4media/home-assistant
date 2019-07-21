@@ -1,0 +1,5 @@
+title: updates
+#icon: 'mdi:home'
+panel: true
+cards:
+  - type: custom:tracker-card

@@ -1,0 +1,95 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: home-assistant
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: !secret home_elevation
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/New_York
+  # Customization file
+  customize: !include customize.yaml
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+# Discover some devices automatically
+discovery:
+
+# Enables map tracking of devices
+map:
+
+# Enables the frontend themes
+frontend: !include frontend.yaml
+
+# Lovelace configuration
+lovelace:
+  mode: yaml
+  
+hacs:
+  token: !secret hacs_github
+  sidepanel_title: HACS
+  sidepanel_icon: "mdi:alpha-c-box"
+  appdaemon: true
+  python_script: true
+  theme: true
+
+tts:
+  - platform: google_translate
+
+# ++++++++++ LIGHTS ++++++++++
+lutron_caseta:
+  host: 192.168.1.81
+  keyfile: /ssl/lutron/caseta.key
+  certfile: /ssl/lutron/caseta.crt
+  ca_certs: /ssl/lutron/caseta-bridge.crt
+
+light:
+# For Fully Kiosk
+  - platform: template
+    lights:
+      dashboard_screen:
+        turn_on:
+        turn_off:
+        set_level:
+#End of Fully Kiosk        
+
+# ++++++++++ THERMOSTATS ++++++++++
+ecobee:
+  api_key: !secret ecobee_api
+
+binary_sensor:
+# For Fully Kiosk
+  - platform: mqtt
+    name: dashboard_motion
+    state_topic: any/value
+# End of Fully Kiosk
+
+# ++++++++++ DEVICE TRACKING ++++++++++
+life360:
+
+# ++++++++++ EXTERNAL FILE REFERENCE ++++++++++
+sensor: !include_dir_merge_list sensor
+zone: !include zones.yaml
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+
+# ++++++++++ CHANGES TO INTERFACE ++++++++++
+# Enter new items in left menu
+panel_iframe:
+  ide:
+    title: IDE
+    icon: mdi:code-braces
+    url: http://hassio.local:8321
+  backup:
+    title: Snapshots
+    icon: mdi:cloud-upload
+    url: http://hassio.local:1627
