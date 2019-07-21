@@ -32,25 +32,49 @@ cards:
                   font-family: Quicksand
                   font-size: 14px
       # --- Sunrise ---      
-              - type: state-label
-                entity: sensor.sunrise_tomorrow
-                style:
-                  top: 6%
-                  left: 82%
-                  transform: none
-                  color: "#A1A1A1"
-                  font-family: Quicksand
-                  font-size: 12px
+              - type: conditional
+                conditions:
+                  - entity: sun.sun
+                    state: 'below_horizon'
+                elements:
+                  - type: image
+                    image: /local/lovelace/images/assets/sun/sunrise.svg
+                    style:
+                      top: 50%
+                      left: 84%
+                      width: 5%
+                      pointer-events: none
+                  - type: state-label
+                    entity: sensor.sunrise_tomorrow
+                    style:
+                      top: 50%
+                      left: 92%
+                      transform: none
+                      color: "#FFFFFF"
+                      font-family: Quicksand
+                      font-size: 14px
       # --- Sunset ---      
-              - type: state-label
-                entity: sensor.sunset_today
-                style:
-                  top: 43%
-                  left: 93%
-                  transform: none
-                  color: "#A1A1A1"
-                  font-family: Quicksand
-                  font-size: 12px            
+              - type: conditional
+                conditions:
+                  - entity: sun.sun
+                    state: 'above_horizon'
+                elements:
+                  - type: image
+                    image: /local/lovelace/images/assets/sun/sunset.svg
+                    style:
+                      top: 50%
+                      left: 84%
+                      width: 5%
+                      pointer-events: none
+                  - type: state-label
+                    entity: sensor.sunset_today
+                    style:
+                      top: 50%
+                      left: 92%
+                      color: "#FFFFFF"
+                      font-family: Quicksand
+                      font-size: 14px
+            
 #MAIN SECTION ------------------------------------------------------------------------------------                  
       - type: horizontal-stack
         cards:
