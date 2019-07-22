@@ -49,7 +49,6 @@ cards:
                     style:
                       top: 50%
                       left: 92%
-                      transform: none
                       color: "#FFFFFF"
                       font-family: Quicksand
                       font-size: 14px
