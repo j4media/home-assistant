@@ -20,7 +20,7 @@ resources:
 cch:
   notifications: show
   options: show
-  hide_tabs: '2'
+  disable_sidebar: true
   voice: hide
 
 views:
