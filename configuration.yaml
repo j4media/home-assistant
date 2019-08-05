@@ -75,6 +75,19 @@ binary_sensor:
 # ++++++++++ DEVICE TRACKING ++++++++++
 life360:
 
+# ++++++++++ AIR QUALITY ++++++++++
+iqvia:
+  zip_code: !secret zipcode
+  monitored_conditions:
+    - allergy_average_forecasted
+    - allergy_index_today
+    - allergy_index_tomorrow
+    - asthma_average_forecasted
+    - asthma_index_today
+    - asthma_index_tomorrow
+    - disease_average_forecasted
+    - disease_index_today
+
 # ++++++++++ EXTERNAL FILE REFERENCE ++++++++++
 sensor: !include_dir_merge_list sensor
 zone: !include zones.yaml
@@ -89,7 +102,3 @@ panel_iframe:
     title: IDE
     icon: mdi:code-braces
     url: http://hassio.local:8321
-  backup:
-    title: Snapshots
-    icon: mdi:cloud-upload
-    url: http://hassio.local:1627

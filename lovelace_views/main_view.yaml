@@ -84,65 +84,11 @@ cards:
               - type: state-label
                 entity: sensor.current_temperature
                 style:
-                  top: 15%
+                  top: 55%
                   left: 33%
                   color: "#FFFFFF"
                   font-family: Quicksand
-                  font-size: 96px
-      # --- Current Feels Like ---      
-              - type: state-label
-                entity: sensor.current_feels
-                style:
-                  top: 65%
-                  left: 14.5%
-                  color: "#A1A1A1"
-                  font-family: Quicksand
-                  font-size: 18px
-      # --- Daily High ---      
-              - type: state-label
-                entity: sensor.daily_high
-                style:
-                  top: 75%
-                  left: 12%
-                  color: "#A1A1A1"
-                  font-family: Quicksand
-                  font-size: 16px
-      # --- Current Humidity ---      
-              - type: state-label
-                entity: sensor.current_humidity
-                style:
-                  top: 69.5%
-                  left: 35%
-                  color: "#A1A1A1"
-                  font-family: Quicksand
-                  font-size: 32px            
-      # --- Daily Low ---      
-              - type: state-label
-                entity: sensor.daily_low
-                style:
-                  top: 86%
-                  left: 17.5%
-                  color: "#A1A1A1"
-                  font-family: Quicksand
-                  font-size: 16px
-      # --- Cloud Cover ---      
-              - type: state-label
-                entity: sensor.cloud_cover
-                style:
-                  top: 32%
-                  left: 33%
-                  color: "#FFFFFF"
-                  font-family: Quicksand
-                  font-size: 16px
-      # --- Nearest Storm ---      
-              - type: state-label
-                entity: sensor.nearest_storm
-                style:
-                  top: 38%
-                  left: 33%
-                  color: "#FFFFFF"
-                  font-family: Quicksand
-                  font-size: 16px
+                  font-size: 150px
       # --- Second Floor Status ---      
               - type: state-label
                 entity: sensor.upstairs_status
@@ -163,37 +109,6 @@ cards:
                   color: "#FFFFFF"
                   font-family: Quicksand
                   font-size: 16px
-      # --- Precipitation Detected ---      
-              - type: state-label
-                entity: sensor.precipitation
-                style:
-                  top: 78%
-                  left: 31%
-                  transform: none
-                  color: "#A1A1A1"
-                  font-family: Quicksand
-                  font-size: 14px
-      # --- Precipitation Amount ---      
-              - type: state-label
-                entity: sensor.precipitation_amount
-                style:
-                  top: 82%
-                  left: 31%
-                  transform: none
-                  color: "#A1A1A1"
-                  font-family: Quicksand
-                  font-size: 14px
-      # --- Precipitation Probability ---      
-              - type: state-label
-                entity: sensor.precipitation_prob
-                style:
-                  top: 86%
-                  left: 31%
-                  transform: none
-                  color: "#A1A1A1"
-                  font-family: Quicksand
-                  font-size: 14px
-                  
       # --- Current Temeperature Icon ---
               - type: conditional
                 conditions:
@@ -203,7 +118,7 @@ cards:
                   - type: image
                     image: /local/lovelace/images/assets/weather/clear-day.svg
                     style:
-                      top: 23%
+                      top: 24%
                       left: 12%
                       width: 15%
                       pointer-events: none
@@ -215,9 +130,9 @@ cards:
                   - type: image
                     image: /local/lovelace/images/assets/weather/clear-night.svg
                     style:
-                      top: 20%
+                      top: 24%
                       left: 12%
-                      width: 12%
+                      width: 15%
                       pointer-events: none
               - type: conditional
                 conditions:
@@ -227,9 +142,9 @@ cards:
                   - type: image
                     image: /local/lovelace/images/assets/weather/rain.svg
                     style:
-                      top: 20%
+                      top: 24%
                       left: 12%
-                      width: 12%
+                      width: 15%
                       pointer-events: none
               - type: conditional
                 conditions:
@@ -239,9 +154,9 @@ cards:
                   - type: image
                     image: /local/lovelace/images/assets/weather/snow.svg
                     style:
-                      top: 20%
+                      top: 24%
                       left: 12%
-                      width: 12%
+                      width: 15%
                       pointer-events: none
               - type: conditional
                 conditions:
@@ -251,9 +166,9 @@ cards:
                   - type: image
                     image: /local/lovelace/images/assets/weather/sleet.svg
                     style:
-                      top: 20%
+                      top: 24%
                       left: 12%
-                      width: 12%
+                      width: 15%
                       pointer-events: none
               - type: conditional
                 conditions:
@@ -263,9 +178,9 @@ cards:
                   - type: image
                     image: /local/lovelace/images/assets/weather/wind.svg
                     style:
-                      top: 20%
+                      top: 24%
                       left: 12%
-                      width: 12%
+                      width: 15%
                       pointer-events: none
               - type: conditional
                 conditions:
@@ -275,9 +190,9 @@ cards:
                   - type: image
                     image: /local/lovelace/images/assets/weather/fog.svg
                     style:
-                      top: 20%
+                      top: 24%
                       left: 12%
-                      width: 12%
+                      width: 15%
                       pointer-events: none
               - type: conditional
                 conditions:
@@ -287,9 +202,9 @@ cards:
                   - type: image
                     image: /local/lovelace/images/assets/weather/cloudy.svg
                     style:
-                      top: 20%
+                      top: 24%
                       left: 12%
-                      width: 12%
+                      width: 15%
                       pointer-events: none        
               - type: conditional
                 conditions:
@@ -299,9 +214,9 @@ cards:
                   - type: image
                     image: /local/lovelace/images/assets/weather/partly-cloudy-day.svg
                     style:
-                      top: 20%
+                      top: 24%
                       left: 12%
-                      width: 12%
+                      width: 15%
                       pointer-events: none
               - type: conditional
                 conditions:
@@ -311,9 +226,9 @@ cards:
                   - type: image
                     image: /local/lovelace/images/assets/weather/partly-cloudy-night.svg
                     style:
-                      top: 20%
+                      top: 24%
                       left: 12%
-                      width: 12%
+                      width: 15%
                       pointer-events: none
               - type: conditional
                 conditions:
@@ -323,9 +238,9 @@ cards:
                   - type: image
                     image: /local/lovelace/images/assets/weather/hail.svg
                     style:
-                      top: 20%
+                      top: 24%
                       left: 12%
-                      width: 12%
+                      width: 15%
                       pointer-events: none
               - type: conditional
                 conditions:
@@ -335,9 +250,9 @@ cards:
                   - type: image
                     image: /local/lovelace/images/assets/weather/thunderstorm.svg
                     style:
-                      top: 20%
+                      top: 24%
                       left: 12%
-                      width: 12%
+                      width: 15%
                       pointer-events: none
               - type: conditional
                 conditions:
@@ -347,9 +262,9 @@ cards:
                   - type: image
                     image: /local/lovelace/images/assets/weather/tornado.svg
                     style:
-                      top: 20%
+                      top: 24%
                       left: 12%
-                      width: 12%
+                      width: 15%
                       pointer-events: none
       # --- Light Toggles ---                  
               - type: image

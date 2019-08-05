@@ -5,9 +5,11 @@ resources:
     type: js
   - url: /local/kiosk-config.js
     type: js
-  - url: /local/github/thomasloven/card-tools.js?track=true
+  - url: /local/github/thomasloven/card-tools.js?v=1
     type: js  
-  - url: /local/github/thomasloven/layout-card.js?track=true
+  - url: /local/github/thomasloven/layout-card.js?v=1
+    type: js
+  - url: /local/plugins/gap-card.js?v=1
     type: js
   - url: /community_plugin/compact-custom-header/compact-custom-header.js
     type: module
@@ -25,4 +27,4 @@ cch:
 
 views:
   - !include '/config/lovelace_views/main_view.yaml'
-  - !include '/config/lovelace_views/updates_view.yaml'
+  - !include '/config/lovelace_views/weather_view.yaml'

@@ -27,3 +27,12 @@
     - daily_summary
     - sunrise_time
     - sunset_time
+
+- platform: airvisual
+  api_key: !secret airvisual_api
+  monitored_conditions:
+    - us
+  show_on_map: true
+  scan_interval: 600
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude

@@ -65,6 +65,30 @@
       value_template: "{% set state = states('sensor.dark_sky_sunset_1d') %}
                        {{ strptime(state, '%Y-%m-%d %H:%M:%S')
                        .replace(tzinfo=utcnow().tzinfo).astimezone(now().tzinfo) .strftime('%I:%M %p') }}"
+# AIR QUALITY TEMPLATES
+    today_aqi:
+      entity_id: sensor.u_s_air_quality_index
+      friendly_name: "Today's AQI"
+      value_template: >-
+        {{ states('sensor.u_s_air_quality_index') }}
+    today_allergy:
+      entity_id: sensor.allergy_index_today
+      friendly_name: "Today's Allergy Index"
+      value_template: >-
+        {{ states('sensor.allergy_index_today') }}
+    allergy_trend:
+      friendly_name: "Allergy Trend"
+      value_template: >-
+        {{ state_attr('sensor.allergy_index_forecasted_average', 'trend') }}
+    allergy_level:
+      friendly_name: "Allergy Level"
+      value_template: >-
+        {{ state_attr('sensor.allergy_index_today', 'rating') }}    
+    current_uv:
+      entity_id:  sensor.current_uv_index
+      friendly_name: "Current UV Index"
+      value_template: >-
+        {{ states('sensor.current_uv_index') | round (1, 'common') }}
 
 # TIME AND DATE TEMPLATES
     today_text:
