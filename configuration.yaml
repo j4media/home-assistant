@@ -40,6 +40,13 @@ hacs:
   appdaemon: true
   python_script: true
   theme: true
+  
+browser_mod:
+  devices:
+    9801b89d-d9138acb:
+      name: windows chrome
+    c6d0b1eb-fc249f7:
+      name: tablet
 
 tts:
   - platform: google_translate
