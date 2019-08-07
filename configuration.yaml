@@ -73,10 +73,10 @@ ecobee:
   api_key: !secret ecobee_api
 
 binary_sensor:
-# For Fully Kiosk
   - platform: mqtt
     name: dashboard_motion
     state_topic: any/value
+# For Fully Kiosk
 # End of Fully Kiosk
 
 # ++++++++++ DEVICE TRACKING ++++++++++

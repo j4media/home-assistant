@@ -1,13 +1,13 @@
 title: Our Home
 # Include external resources here
 resources:
-  - url: /local/lovelace-fullykiosk.js
+  - url: /local/plugins/lovelace-fullykiosk.js
     type: js
-  - url: /local/kiosk-config.js
+  - url: /local/plugins/kiosk-config.js
     type: js
-  - url: /local/github/thomasloven/card-tools.js?v=1
+  - url: /local/plugins/thomasloven/card-tools.js?v=1
     type: js  
-  - url: /local/github/thomasloven/layout-card.js?v=1
+  - url: /local/plugins/thomasloven/layout-card.js?v=1
     type: js
   - url: /local/plugins/gap-card.js?v=1
     type: js
