@@ -5,13 +5,15 @@ resources:
     type: js
   - url: /local/plugins/kiosk-config.js
     type: js
-  - url: /local/plugins/thomasloven/card-tools.js?v=1
+  - url: /local/plugins/thomasloven/card-tools.js?v=0.4
     type: js  
-  - url: /local/plugins/thomasloven/layout-card.js?v=1
+  - url: /local/plugins/thomasloven/layout-card.js?v=1.1
     type: js
   - url: /local/plugins/gap-card.js?v=1
     type: js
   - url: /community_plugin/compact-custom-header/compact-custom-header.js
+    type: module
+  - url: /community_plugin/mini-media-player/mini-media-player.js
     type: module
   - url: 'https://fonts.googleapis.com/css?family=Quicksand:300,400'
     type: css
@@ -24,7 +26,12 @@ cch:
   options: show
   disable_sidebar: true
   voice: hide
+  swipe: true
+  swipe-animate: fade
+  swipe_wrap: false
 
 views:
   - !include '/config/lovelace_views/main_view.yaml'
   - !include '/config/lovelace_views/weather_view.yaml'
+  - !include '/config/lovelace_views/music_view.yaml'
+  - !include '/config/lovelace_views/hub_view.yaml'

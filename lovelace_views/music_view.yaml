@@ -1,0 +1,39 @@
+title: music
+icon: 'mdi:music'
+#panel: true
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: custom:mini-media-player
+        entity: media_player.living_room
+        icon: mdi:spotify
+        artwork: full-cover
+        hide:
+          power: true
+        speaker_group:
+          platform: sonos
+          show_group_count: true
+          sync_volume: true
+          entities:
+            - entity_id: media_player.living_room
+              name: Sonos Living Room
+            - entity_id: media_player.family_room
+              name: Sonos Family Room
+            - entity_id: media_player.lawn
+              name: Sonos Lawn
+            - entity_id: media_player.patio
+              name: Sonos Patio
+            - entity_id: media_player.pool
+              name: Sonos Pool
+      - type: custom:mini-media-player
+        entity: media_player.family_room
+        icon: mdi:spotify
+        artwork: full-cover
+  - type: custom:gap-card
+    height: 75
+  - type: custom:gap-card
+    height: 75
+  - type: custom:mini-media-player
+    entity: media_player.family_room
+    icon: mdi:spotify
+    artwork: full-cover

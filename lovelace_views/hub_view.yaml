@@ -1,0 +1,30 @@
+title: Google
+icon: 'mdi:google'
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: entities
+        entities:
+          - group.all_lights
+      - type: entities
+        entities:
+          - group.all_lights
+  - type: custom:gap-card
+    height: 160
+  #- type: custom:gap-card
+    #height: 2
+  - type: picture-elements
+    image: /local/lovelace/images/assets/google_hub/background.png
+    aspect_ratio: 4x3
+    elements:
+      - type: state-label
+        entity: sensor.today_clock
+        style:
+          top: 50%
+          left: 50%
+          color: "#FFFFFF"
+          font-family: Quicksand
+          font-size: 28px
+
+
+      
