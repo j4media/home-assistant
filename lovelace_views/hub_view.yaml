@@ -1,28 +1,32 @@
 title: Google
 icon: 'mdi:google'
+theme: Google
+#background: center / cover no-repeat url("/local/lovelace/themes/day.jpeg") fixed
 cards:
-  - type: horizontal-stack
-    cards:
-      - type: entities
-        entities:
-          - group.all_lights
-      - type: entities
-        entities:
-          - group.all_lights
-  - type: custom:gap-card
-    height: 160
-  #- type: custom:gap-card
-    #height: 2
   - type: picture-elements
-    image: /local/lovelace/images/assets/google_hub/background.png
-    aspect_ratio: 4x3
+    image: /local/lovelace/images/assets/google_hub/background_spacer.svg
     elements:
       - type: state-label
         entity: sensor.today_clock
         style:
           top: 50%
           left: 50%
-          color: "#FFFFFF"
+          color: "#000000"
+          font-family: Quicksand
+          font-size: 28px
+  - type: custom:gap-card
+    height: 160
+  #- type: custom:gap-card
+    #height: 2
+  - type: picture-elements
+    image: /local/lovelace/images/assets/google_hub/background_spacer.svg
+    elements:
+      - type: state-label
+        entity: sensor.today_clock
+        style:
+          top: 50%
+          left: 50%
+          color: "#000000"
           font-family: Quicksand
           font-size: 28px
 
